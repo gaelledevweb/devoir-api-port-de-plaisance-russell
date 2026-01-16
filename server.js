@@ -24,8 +24,10 @@ app.use('/users', require('./routes/user'));
 app.use('/reservations', require('./routes/reservations'));
 app.use('/', require('./routes/reservations'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Serveur lancé en local sur le port ${PORT}`));
+}
 
 app.get("/", (req, res) => res.send("API Express sur Vercel !"));
 
