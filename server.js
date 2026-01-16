@@ -24,4 +24,5 @@ app.use('/users', require('./routes/user'));
 app.use('/reservations', require('./routes/reservations'));
 app.use('/', require('./routes/reservations'));
 
-app.listen(3000, () => console.log("Serveur prêt sur http://localhost:3000"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
