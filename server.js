@@ -26,3 +26,8 @@ app.use('/', require('./routes/reservations'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
+
+app.get("/", (req, res) => res.send("API Express sur Vercel !"));
+
+// IMPORTANT : Exportez l'application pour Vercel
+module.exports = app;
