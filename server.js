@@ -14,23 +14,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 
-// Connexion DB
-connectDB();
+// Connexion DB avec gestion d'erreur pour éviter le crash Vercel
+connectDB().catch(err => console.error("Erreur de connexion initiale MongoDB:", err));
 
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/catways', require('./routes/catway'));
 app.use('/users', require('./routes/user'));
 app.use('/reservations', require('./routes/reservations'));
-app.use('/', require('./routes/reservations'));
 
+// Route de test
+app.get("/status", (req, res) => res.status(200).json({ status: "ok", message: "Connecté !" }));
+
+// Pour vercel
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log(`Serveur lancé en local sur le port ${PORT}`));
+    app.listen(PORT, () => console.log(`Local: http://localhost:${PORT}`));
 }
-
-app.get("/", (req, res) => res.send("API Express sur Vercel !"));
-
-app.get('/favicon.ico', (req, res) => res.status(204).end()); 
 
 module.exports = app;
