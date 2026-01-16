@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Catways - Port de Russell</title>
+    <link rel="stylesheet" href="/css/dashbord.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestion du Port de Russell</h1>
+        <nav>
+            <a href="/logout" class="btn-logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="card">
+            <h2>Actions Rapides</h2>
+            <div class="button-group">
+                <a href="/dashboard" class="btn">Retour Dashboard</a>
+                <a href="/catways/Général/reservations/new" class="btn" style="background-color: #28a745;">+ Nouvelle
+                    Réservation</a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Liste des Catways</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° Catway</th>
+                        <th>Type</th>
+                        <th>État</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (typeof catways !=='undefined' && catways.length> 0) { %>
+                        <% catways.forEach(catway=> { %>
+                            <tr>
+                                <td>#<%= catway.catwayNumber %>
+                                </td>
+                                <td>
+                                    <%= catway.catwayType || catway.type %>
+                                </td>
+                                <td>
+                                    <%= catway.catwayState %>
+                                </td>
+                                <td>
+                                    <a href="/catways/<%= catway.catwayNumber %>/reservations/new" class="btn">
+                                        Réserver
+                                    </a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;">Aucune donnée à afficher.</td>
+                                    </tr>
+                                    <% } %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>

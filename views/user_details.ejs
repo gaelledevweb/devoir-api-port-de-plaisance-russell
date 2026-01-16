@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de l'utilisateur - Port de Russell</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Détails de l'utilisateur</h1>
+        <nav>
+            <a href="/users">Retour à la liste</a> |
+            <a href="/dashboard">Tableau de Bord</a>
+        </nav>
+    </header>
+    <main>
+        <section class="details-card">
+            <p><strong>Nom d'utilisateur :</strong>
+                <%= user.username %>
+            </p>
+            <p><strong>Adresse Email :</strong>
+                <%= user.email %>
+            </p>
+            <p><strong>ID Base de données :</strong>
+                <%= user._id %>
+            </p>
+
+            <hr>
+            <div class="actions">
+                <a href="/users/edit/<%= user.email %>" class="btn">Modifier cet utilisateur</a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

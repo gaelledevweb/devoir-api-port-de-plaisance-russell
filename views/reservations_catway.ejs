@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Réservations Catway <%= catwayNumber %>
+    </title>
+    <link rel="stylesheet" href="/css/dashbord.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestion des Utilisateurs</h1>
+        <a href="/logout" class="btn-logout">Déconnexion</a>
+    </header>
+
+    <main class="dashboard-grid">
+        <aside class="card">
+            <h2>Actions</h2>
+            <div class="button-group">
+                <a href="/dashboard" class="btn">Retour Accueil</a>
+                <a href="/users/add" class="btn">Nouvel Utilisateur</a>
+            </div>
+        </aside>
+
+        <section class="card">
+            <h2>Liste des membres de la capitainerie</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user=> { %>
+                        <tr>
+                            <td>
+                                <%= user.username %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <a href="/users/<%= user.email %>" class="btn"
+                                    style="padding: 5px; font-size: 0.8rem;">Détails</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>

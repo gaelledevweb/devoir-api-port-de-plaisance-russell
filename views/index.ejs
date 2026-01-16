@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Port de plaisance de Russell</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main class="login-container">
+        <section class="presentation">
+            <h1>Gestionnaire du Port de Russell</h1>
+            <p>
+                Bienvenue sur l'interface de gestion privée de la capitainerie.
+                Cet outil vous permet de gérer les catways (pontons d'amarrage),
+                les réservations des clients et les accès utilisateurs.
+            </p>
+        </section>
+
+        <section class="login-form">
+            <h2>Connexion</h2>
+            <form action="/login" method="POST">
+                <div class="field">
+                    <label for="email">Adresse Email :</label>
+                    <input type="email" name="email" id="email" placeholder="Votre email" required>
+                </div>
+                <div class="field">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" name="password" id="password" placeholder="Votre mot de pass" required>
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+        </section>
+
+        <footer>
+            <p><a href="/api-docs">Accéder à la documentation de l'API</a></p>
+        </footer>
+    </main>
+</body>
+
+</html>

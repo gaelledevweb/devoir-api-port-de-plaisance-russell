@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation API - Port de Russell</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .login-container {
+            max-width: 700px;
+            text-align: left;
+        }
+
+        h1,
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 4px solid #0056b3;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <header>
+            <h1>Documentation de l'API REST</h1>
+            <p style="color: #666; font-style: italic;">Guide d'utilisation des ressources du port</p>
+        </header>
+
+        <main>
+            <h2>Catways</h2>
+            <ul>
+                <li><code>GET /catways</code> : Lister tous les catways</li>
+                <li><code>GET /catways/:id</code> : Détails d'un catway</li>
+                <li><code>POST /catways</code> : Créer un catway</li>
+            </ul>
+
+            <h2>Réservations</h2>
+            <ul>
+                <li><code>GET /catways/:id/reservations</code> : Liste des réservations d'un catway</li>
+                <li><code>POST /catways/:id/reservations</code> : Créer une réservation</li>
+            </ul>
+
+            <h2>Utilisateurs</h2>
+            <ul>
+                <li><code>POST /users</code> : Créer un utilisateur (username, email, password)</li>
+                <li><code>POST /login</code> : Authentification</li>
+            </ul>
+        </main>
+
+        <footer>
+            <a href="/dashboard" class="back-link">← Retour au Tableau de Bord</a>
+        </footer>
+    </div>
+</body>
+
+</html>

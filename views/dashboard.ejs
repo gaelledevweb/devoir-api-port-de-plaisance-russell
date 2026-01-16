@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de Bord - Port de Russell</title>
+    <link rel="stylesheet" href="/css/dashbord.css">
+</head>
+
+<body>
+    <header>
+        <h1>Capitainerie du Port de Russell</h1>
+        <p>Bienvenue, <strong>
+                <%= user ? user.username : 'Utilisateur' %>
+            </strong> | Date : <%= date %>
+        </p>
+        <nav>
+            <a href="/logout" class="btn-logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="card">
+            <h2>Gestion du Port</h2>
+            <div class="button-group">
+                <a href="/catways" class="btn">Gérer les Catways</a>
+                <a href="/users" class="btn">Gérer les Utilisateurs</a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Réservations en cours</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Catway n°</th>
+                        <th>Bateau</th>
+                        <th>Client</th>
+                        <th>Dates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% reservations.forEach(res=> { %>
+                        <tr>
+                            <td>
+                                <%= res.catwayNumber %>
+                            </td>
+                            <td>
+                                <%= res.boatName %>
+                            </td>
+                            <td>
+                                <%= res.clientName %>
+                            </td>
+                            <td>Du <%= new Date(res.startDate).toLocaleDateString() %> au <%= new
+                                        Date(res.endDate).toLocaleDateString() %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>

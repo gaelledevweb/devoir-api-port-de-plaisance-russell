@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle Réservation - Port de Russell</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <header>
+            <% if (catwayNumber==="Général" ) { %>
+                <a href="/catways" style="text-decoration: none; color: #0056b3; font-size: 0.9rem;">← Retour aux
+                    catways</a>
+                <% } else { %>
+                    <a href="/catways" style="text-decoration: none; color: #0056b3; font-size: 0.9rem;">← Retour au
+                        Catway n°<%= catwayNumber %></a>
+                    <% } %>
+
+                        <h1 style="color: #333; margin-top: 1rem;">Réservation Catway n°<%= catwayNumber %>
+                        </h1>
+        </header>
+
+        <form action="/reservations/add" method="POST">
+            <div class="field">
+                <label>Numéro du Catway :</label>
+                <input type="number" name="catwayNumber" value="<%= catwayNumber %>" required readonly>
+            </div>
+
+            <div class="field">
+                <label>Nom du Client :</label>
+                <input type="text" name="clientName" placeholder="Nom du client" required>
+            </div>
+
+            <div class="field">
+                <label>Nom du Bateau :</label>
+                <input type="text" name="boatName" placeholder="Nom du bateau" required>
+            </div>
+
+            <div class="field">
+                <label>Date de début :</label>
+                <input type="date" name="startDate" required>
+            </div>
+
+            <div class="field">
+                <label>Date de fin :</label>
+                <input type="date" name="endDate" required>
+            </div>
+
+            <button type="submit">Enregistrer la réservation</button>
+        </form>
+    </div>
+</body>
+
+</html>

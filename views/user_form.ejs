@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Utilisateur - Capitainerie</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Capitainerie du Port de Russell</h1>
+        <a href="/dashboard" class="btn-logout"
+            style="background-color: #e74c3c; color: white; text-decoration: none; padding: 10px; border-radius: 5px;">Retour</a>
+    </header>
+
+    <main style="display: flex; justify-content: center; padding: 40px;">
+        <div class="card"
+            style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 400px;">
+            <h2 style="color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px;">Nouvel Utilisateur</h2>
+
+            <form action="/users/add" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold;">Nom d'utilisateur :</label>
+                    <input type="text" name="username"
+                        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" required>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold;">Email :</label>
+                    <input type="email" name="email"
+                        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" required>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold;">Mot de passe :</label>
+                    <input type="password" name="password"
+                        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" required>
+                </div>
+
+                <button type="submit"
+                    style="background-color: #0056b3; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold;">
+                    Enregistrer l'utilisateur
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

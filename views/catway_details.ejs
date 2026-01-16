@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Détails Catway - Port de Russell</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/dashboard">Retour au Tableau de Bord</a>
+        <h1>Détails du Catway n°<%= catway.catwayNumber %>
+        </h1>
+    </header>
+
+    <main>
+        <section class="info-card">
+            <h2>Informations Générales</h2>
+            <p><strong>Type :</strong>
+                <%= catway.catwayType==='long' ? 'Long (Grand bateau)' : 'Court (Petit bateau)' %>
+            </p>
+            <p><strong>État actuel :</strong>
+                <%= catway.catwayState %>
+            </p>
+        </section>
+
+        <section class="actions">
+            <h2>Actions</h2>
+            <form action="/catways/<%= catway.catwayNumber %>?_method=PUT" method="POST">
+                <label for="catwayState">Mettre à jour l'état :</label>
+                <textarea name="catwayState" id="catwayState"><%= catway.catwayState %></textarea>
+                <button type="submit">Enregistrer les modifications</button>
+            </form>
+
+            <hr>
+
+            <div class="reservation-links">
+                <a href="/catways/<%= catway.catwayNumber %>/reservations" class="btn">Voir toutes les réservations de
+                    ce catway</a>
+                <a href="/catways/<%= catway.catwayNumber %>/reservations/new" class="btn-primary">Créer une nouvelle
+                    réservation</a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
