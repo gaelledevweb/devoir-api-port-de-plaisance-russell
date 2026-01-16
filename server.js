@@ -29,5 +29,6 @@ app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
 
 app.get("/", (req, res) => res.send("API Express sur Vercel !"));
 
-// IMPORTANT : Exportez l'application pour Vercel
+app.get('/favicon.ico', (req, res) => res.status(204).end()); 
+
 module.exports = app;
